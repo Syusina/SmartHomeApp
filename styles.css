@@ -1,0 +1,398 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Rubik:wght@300;400;500,600&display=swap');
+@import url('./fonts/icons/style.css');
+
+:root {
+  --gradient: linear-gradient(45deg, #6983b5,#879cc4,#aebcd6);
+  --grey: #f0f0f0;
+  --transition: all 0.3s ease-in-out;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e0e5eb;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Rubik', sans-serif;
+  height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.mobile {
+  width: 350px;
+  height: 700px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  box-shadow: -5px 5px 10px rgba(0,0,0,0.3);
+  display: grid;
+  grid-template-rows: 48px 1fr 62px;
+}
+
+.mobile__top,
+.mobile__bottom {
+  align-self: center;
+  justify-self: center;
+}
+
+
+.mobile__content {
+  background: white;
+}
+
+.rooms {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 20px;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 14px;
+}
+
+.room {
+  display: grid;
+  grid-template-rows: 130px 30px;
+  align-content: center;
+  font-size: 16px;
+  text-align: center;
+  background: var(--grey);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.room.selected {
+  background: var(--gradient);
+  color: white;
+}
+
+.room.selected i {
+  opacity: 1;
+}
+
+.room i {
+  font-size: 5em;
+  align-self: center;
+  opacity: 0.7;
+}
+/* Настройки комнаты */
+.settings {
+  padding: 0 20px;
+  display: block;
+}
+
+.settings__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 94px;
+  grid-gap: 14px;
+}
+
+.tab {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+  align-content: center;
+  font-size: 12px;
+  text-align: center;
+  background: var(--grey);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.tab.selected {
+  background: var(--gradient);
+  color: white;
+}
+
+.tab.selected i {
+  opacity: 1;
+}
+
+.tab i {
+  font-size: 3em;
+  align-self: center;
+  opacity: 0.7;
+}
+
+/* UI - Components */
+.selectBox {
+  width: 142px;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.selectBox__selected {
+  font-size: 18px;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.selectBox.open .ic_arrow {
+  transform: rotate(-180deg);
+}
+
+.ic_arrow {
+  display: inline-block;
+  font-size: 0.7em;
+  margin-left: 10px;
+  transition: var(--transition);
+  transform: rotate(0deg);
+}
+
+.selectBox.open .selectBox__list {
+  top: 120%;
+  max-height: 200px;
+}
+
+.selectBox__list {
+  position: absolute;
+  top: 0;
+  left: -12px;
+  right: -12px;
+  z-index: 1;
+  max-height: 0;
+  overflow: hidden;
+  padding: 8px 12px;
+  border-radius: 3px;
+  background-color: white;
+  transition: var(--transition);
+}
+
+.selectBoxItem {
+  cursor: pointer;
+}
+
+.selectBoxItem.selected {
+  color: #6983b5;
+}
+
+.selectBoxItem:hover {
+  color: #6983b5;
+  font-weight: 600;
+}
+
+.selectBoxItem:not(:last-child) {
+  margin-bottom: 5px;
+}
+/* Экраны */
+.setting__screen-title {
+  text-align: center;
+  margin: 30px 0 15px;
+  font-weight: 300;
+}
+
+.settings__screen {
+  display: none;
+}
+
+.settings__screen.selected {
+  display: block;
+}
+
+.setting__screen-item {
+  text-align: center;
+  font-size: 30px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* Кнопка регулировки температуры */
+.temperature-button {
+  width: 240px;
+  height: 240px;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.temperature-info {
+  position: relative;
+  font-size: 32px;
+  width: 70%;
+  height: 70%;
+  border-radius: 80%;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.temperature-info::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 4%;
+  right: 4%;
+  top: 4%;
+  bottom: 4%;
+  border-radius: 100%;
+  opacity: 0.3;
+  border: 1px solid #000;
+}
+
+/* Power */
+.power {
+  background: var(--gradient);
+  color: white;
+  width: 44px;
+  height: 44px;
+  border-radius: 44px;
+  font-size: 24px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding-bottom: 2px;
+  margin: 0 auto;
+}
+
+.power.off {
+  background: var(--grey);
+}
+
+.power-label {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* Slider */
+.slider {
+  cursor: pointer;
+  width: 100px;
+  height: 250px;
+  margin: 0 auto;
+  border-radius: 16px;
+  background-color: var(--grey);
+  overflow: hidden;
+  position: relative;
+}
+
+.slider-progress {
+  position: absolute;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  min-height: 30px;
+  height: 45%;
+}
+
+.slider-progress span {
+  pointer-events: none;
+}
+
+.switch {
+  cursor: pointer;
+  width: 60px;
+  height: 28px;
+  border-radius: 60px;
+  background: var(--grey);
+  margin: 30px auto 0;
+  position: relative;
+}
+
+.switch.off div {
+  left: 0;
+  background: #bbb;
+}
+
+.switch div {
+  position: absolute;
+  left: 52%;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  background: var(--gradient);
+  transition: var(--transition);
+}
+
+.save-button {
+  cursor: pointer;
+  background: var(--gradient);
+  color: white;
+  width: 250px;
+  margin: 15px auto 0;
+  border-radius: 100px;
+  font-size: 16px;
+  text-align: center;
+  padding: 16px ;
+}
+
+.dots-box {
+  transform: rotate(5deg);
+  transform-origin: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.dots, 
+.line,
+.line-active,
+.round,
+.separate-lines,
+.separate-dots {
+  fill: transparent;
+  stroke: var(--grey);
+  stroke-width: 3px;
+  stroke-linecap: round;
+  stroke-dasharray: 0 21;
+}
+
+.line,
+.line-active,
+.round {
+  stroke-width: 1px;
+  stroke-dasharray: 276 276;
+  transform: rotate(48deg);
+  transform-origin: center;
+}
+
+.line-active {
+  stroke: #50658c;
+  stroke-dasharray: 54 276; /* от 54 до 276 */
+}
+
+.round {
+  stroke-width: 6px;
+  stroke-dasharray: 0 276;
+  transform: rotate(-240deg); /* от -240 до 48 градусов*/
+}
+
+.separate-lines,
+.separate-dots {
+  stroke: white;
+  transform: rotate(60deg);
+  transform-origin: center;
+}
+
+.separate-dots {
+  stroke-dasharray: 40 313;
+}
+
+.separate-lines {
+  stroke-dasharray: 53 276;
+  transform: rotate(49deg);
+}

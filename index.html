@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>SmartHome</title>
+</head>
+<body>
+  <div class="mobile">
+    <div class="mobile__top">
+      <img src="./img/top.svg" alt="">
+    </div>
+    <div class="mobile__content">
+      <div id="selectBox" class="selectBox">
+        <div class="selectBox__selected">
+          <span>Все комнаты</span>
+          <i class="ic_arrow"></i>
+        </div>
+        <div class="selectBox__list">
+            <div data-room="all" class="selectBoxItem selected">Все комнаты</div>
+            <div data-room="livingroom" class="selectBoxItem">Зал</div>
+            <div data-room="bedroom" class="selectBoxItem">Спальня</div>
+            <div data-room="kitchen" class="selectBoxItem">Кухня</div>
+            <div data-room="bathroom" class="selectBoxItem">Ванная</div>
+            <div data-room="studio" class="selectBoxItem">Кабинет</div>
+            <div data-room="washingroom" class="selectBoxItem">Уборная</div>
+        </div>
+      </div>
+      <div id="rooms" class="rooms">
+        <div data-room="livingroom" class="room">
+            <i class="ic_livingroom"></i>
+            <span>Зал</span>
+        </div>
+        <div data-room="bedroom" class="room">
+            <i class="ic_bedroom"></i>
+            <span>Спальня</span>
+        </div>
+        <div data-room="kitchen" class="room">
+            <i class="ic_kitchen"></i>
+            <span>Кухня</span>
+        </div>
+        <div data-room="bathroom" class="room">
+            <i class="ic_bathroom"></i>
+            <span>Ванная</span>
+        </div>
+        <div data-room="studio" class="room">
+            <i class="ic_studio"></i>
+            <span>Кабинет</span>
+        </div>
+        <div data-room="washingroom" class="room">
+            <i class="ic_washingroom"></i>
+            <span>Уборная</span>
+        </div>
+    </div>
+    <div id="settings" class="settings">
+      <div id="settings__tabs" class="settings__tabs">
+        <div data-type="temperature" class="tab selected">
+          <i class="ic_temperature"></i>
+          <span>Температура</span>
+        </div>
+        <div data-type="lights" class="tab">
+          <i class="ic_lights"></i>
+          <span>Свет</span>
+        </div>
+        <div data-type="humidity" class="tab">
+          <i class="ic_humidity"></i>
+          <span>Влажность</span>
+        </div>
+      </div>
+      <div id="settings__panel" class="settings__screens">
+        <div data-type="temperature" class="settings__screen selected">
+          <div class="setting__screen-title">Температура</div>
+          <div id="temperature-btn" class="temperature-button">
+            <svg class="dots-box" viewBox="0 0 103 103">
+              <circle class="dots" r="50" cx="50%" cy="50%"></circle>
+              <circle class="line" r="44" cx="50%" cy="50%"></circle>
+              <circle id="tempLine" class="line-active" r="44" cx="50%" cy="50%"></circle>
+              <circle class="separate-lines" r="44" cx="50%" cy="50%"></circle>
+              <circle id="tempRound" class="round" r="44" cx="50%" cy="50%"></circle>
+              <circle class="separate-dots" r="50" cx="50%" cy="50%"></circle>
+            </svg>
+            <div class="temperature-info">
+              <span id="temperature">16</span>
+              <span>°C</span>
+            </div>
+          </div> 
+          <div id="power" class="power">
+            <i class="ic_power"></i>
+          </div>
+          <div class="power-label">Нажмите, чтобы выключить</div>
+          <div id="save-temperature" class="save-button">Установить температуру</div>
+        </div>
+        <div data-type="lights" class="settings__screen">
+          <div class="setting__screen-title">Интенсивность</div>
+          <div class="setting__screen-item">
+            <i class="ic_sun"></i>
+          </div>
+          <div class="slider">
+            <div id="lighthSlider" class="slider-progress">
+              <span>45</span><span>%</span>
+            </div>
+          </div>
+          <div id="lights-power" class="switch">
+            <div></div>
+          </div>
+        </div>
+        <div data-type="humidity" class="settings__screen">
+          <div class="setting__screen-title">Интенсивность</div>
+          <div class="setting__screen-item">
+            <i class="ic_humidity"></i>
+          </div>
+          <div class="slider">
+            <div id="humiditySlider" class="slider-progress">
+              <span>45</span><span>%</span>
+            </div>
+          </div>
+          <div id="humidity-power" class="switch">
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="mobile__bottom">
+      <img src="./img/bottom.svg" alt="">
+    </div>
+  </div>
+    
+  <script src="app.js"></script>
+</body>
+</html>
